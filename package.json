@@ -11,6 +11,9 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
+    "build":"npx react-native build-android --mode=release",
+    "vr":"npm run android -- --mode=release",
+    "apk":"npm run build && npm run vr",
     "test": "jest"
   },
   "dependencies": {
