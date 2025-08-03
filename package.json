@@ -1,7 +1,11 @@
 {
-  "name": "AwesomeProject",
+  "name": "root-detector",
   "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "pankaj",
+    "email": "dev.pankaj0409@gmail.com"
+  },
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
