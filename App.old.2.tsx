@@ -9,19 +9,10 @@ import {
   NativeModules,
 } from 'react-native';
 import { ROOT_DETECTION_PATH } from './utils/root_detection_path';
-import RootStack from './app/navigation';
-import { NavigationContainer } from '@react-navigation/native';
-
 
 const { RootCheckModule, FileCheckModule } = NativeModules;
 
 function App() {
-
-  return (
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
-  )
   const isDarkMode = useColorScheme() === 'dark';
 
   const [isRooted, setIsRooted] = useState<boolean | null>(null);
