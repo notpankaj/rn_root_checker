@@ -92,6 +92,8 @@ const InfoScreen: React.FC = () => {
         sections={sections}
         keyExtractor={(item, index) => item.title + index}
         stickySectionHeadersEnabled
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.contentContainerStyle}
         renderItem={({ item }: SectionListRenderItemInfo<SectionDataItem>) => (
           <View>
             <TouchableOpacity style={styles.item} onPress={() => toggleExpand(item.title)}>
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  contentContainerStyle: { backgroundColor: 'white', paddingBottom: 20, },
   item: {
     paddingVertical: 10,
     paddingHorizontal: 10,
