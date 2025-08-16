@@ -88,7 +88,7 @@ const RootCheck: React.FC = () => {
 
         <View style={styles.info}>
           <Text>
-            POCO F1 <Text>is not Rooted</Text>
+            POCO F1 <Text>{status === "success" ? "is Rooted" : "is not Rooted"}</Text>
           </Text>
           <Text>
             Running <Text>Android 12</Text> (Oreo)
