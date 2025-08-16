@@ -2,37 +2,47 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import LottieView from "lottie-react-native";
 import { LOTTIE_JSON } from "../../../../assets/lottie";
+import useRootChecker from "../../../hooks/useRootChecker";
 
 type AnimationType = "idle" | "loading" | "success" | "fail";
 
 const RootCheck: React.FC = () => {
   const [status, setStatus] = useState<AnimationType>("idle");
+  const { init, loading, isRooted } = useRootChecker()
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-
-    if (status === "loading") {
-      timer = setTimeout(() => {
-        const randomSuccess = Math.random() > 0.5;
-        setStatus(randomSuccess ? "success" : "fail");
-      }, 10000); // 30 seconds
+    let timeoutId: NodeJS.Timeout;
+    if (loading) {
+      setStatus("loading")
+    } else {
+      timeoutId = setTimeout(() => {
+        if (isRooted !== null) {
+          setStatus(isRooted ? "success" : "fail");
+        }
+      }, 1000);
     }
 
-    return () => clearTimeout(timer);
-  }, [status]);
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
 
-  const handleGoPress = () => {
-    setStatus("loading");
-  };
+  }, [loading, isRooted])
+
+  useEffect(() => {
+    init()
+  }, [])
 
   const renderAnimation = () => {
     switch (status) {
       case "idle":
         return (
           <TouchableOpacity
+            disabled={loading}
             style={styles.blackBox}
-            onPress={handleGoPress}
             activeOpacity={0.7}
+            onPress={init}
           >
             <Text style={styles.goText}>GO</Text>
           </TouchableOpacity>
@@ -113,7 +123,7 @@ const styles = StyleSheet.create({
   animationContainer: {
     height: 100,
     width: 100,
-    backgroundColor: "black",
+    // backgroundColor: "black",
     justifyContent: "center",
     alignItems: "center",
   },
