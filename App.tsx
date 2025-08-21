@@ -10,15 +10,22 @@ import {
 } from 'react-native';
 import { ROOT_DETECTION_PATH } from './utils/root_detection_path';
 import RootStack from './app/navigation';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+
 
 
 const { RootCheckModule, FileCheckModule } = NativeModules;
-
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#3700B3',
+  },
+};
 function App() {
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <RootStack />
     </NavigationContainer>
   )

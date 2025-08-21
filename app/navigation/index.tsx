@@ -1,6 +1,7 @@
-import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TopTabs from './TopTabs';
+
+import Header from './components/Header';
 
 
 
@@ -8,12 +9,14 @@ import TopTabs from './TopTabs';
 
 const Stack = createNativeStackNavigator();
 
+
 function RootStack() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Tabs"  options={{
-        headerTitle:"#Root Checker"
-      }} component={TopTabs} />
+    <Stack.Navigator screenOptions={{
+      headerShown: true,
+      header: () => <Header />
+    }}>
+      <Stack.Screen name="Tabs" component={TopTabs} />
     </Stack.Navigator>
   );
 }

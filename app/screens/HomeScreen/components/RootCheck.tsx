@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import LottieView from "lottie-react-native";
 import { LOTTIE_JSON } from "../../../../assets/lottie";
 import useRootChecker from "../../../hooks/useRootChecker";
+import DeviceInfo from "react-native-device-info";
+import { ANDROID_VERSIONS } from "../../../../utils/android_versions";
 
 type AnimationType = "idle" | "loading" | "success" | "fail";
 
@@ -30,8 +32,12 @@ const RootCheck: React.FC = () => {
 
   }, [loading, isRooted])
 
+
+
+
   useEffect(() => {
     init()
+
   }, [])
 
   const renderAnimation = () => {
@@ -77,10 +83,13 @@ const RootCheck: React.FC = () => {
     }
   };
 
+  const modelName = DeviceInfo.getModel();
+  const systemVersion = DeviceInfo.getSystemVersion();
+  const desertName = ANDROID_VERSIONS[systemVersion] ? `( ${ANDROID_VERSIONS[systemVersion]} )` : ''
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>Root Check Result</Text>
+        <Text style={styles.title}>Root Check Result</Text>
       </View>
 
       <View style={styles.row}>
@@ -88,10 +97,10 @@ const RootCheck: React.FC = () => {
 
         <View style={styles.info}>
           <Text>
-            POCO F1 <Text>{status === "success" ? "is Rooted" : "is not Rooted"}</Text>
+            {modelName} <Text>{status === "success" ? "is Rooted" : "is not Rooted"}</Text>
           </Text>
           <Text>
-            Running <Text>Android 12</Text> (Oreo)
+            Running <Text>Android {systemVersion}</Text> {desertName}
           </Text>
         </View>
       </View>
@@ -105,15 +114,21 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 0.5,
     margin: 10,
-    borderRadius: 5,
-    borderColor: "grey",
+    borderRadius: 8,
+    borderColor: "lightgrey",
     padding: 10,
+
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   header: {
     marginBottom: 10,
     borderBottomWidth: 0.5,
     paddingBottom: 5,
-    borderBottomColor: "grey",
+    borderBottomColor: "lightgrey",
   },
   row: {
     flexDirection: "row",
