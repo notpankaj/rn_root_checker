@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   sectionHeader: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: "bold",
   },
   contentContainerStyle: { backgroundColor: 'white', paddingBottom: 20, },
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ddd",
   },
   itemTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "600",
   },
   itemDescription: {
