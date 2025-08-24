@@ -33,7 +33,7 @@ const ContactScreen: React.FC = () => {
           <TouchableOpacity style={styles.row} disabled>
             <Image source={APP_ICONS.AppLogo} style={styles.icon} />
             <View style={styles.textContainer}>
-              <Text style={styles.label}>Root Checker</Text>
+              <Text style={styles.label}>Root Checker Next</Text>
               <Text style={styles.value}>Version {appVersion}</Text>
             </View>
           </TouchableOpacity>

@@ -1,5 +1,5 @@
 
-package com.awesomeproject;
+package com.next.rootchecker;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;

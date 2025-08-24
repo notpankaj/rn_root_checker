@@ -1,4 +1,4 @@
-package com.awesomeproject
+package com.next.rootchecker
 
 import android.app.Application
 import com.facebook.react.PackageList

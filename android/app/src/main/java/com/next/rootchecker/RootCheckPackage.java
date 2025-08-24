@@ -1,5 +1,5 @@
 
-package com.awesomeproject;
+package com.next.rootchecker;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
