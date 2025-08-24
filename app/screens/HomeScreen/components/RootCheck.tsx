@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import LottieView from "lottie-react-native";
-import { LOTTIE_JSON } from "../../../../assets/lottie";
-import useRootChecker from "../../../hooks/useRootChecker";
-import DeviceInfo from "react-native-device-info";
-import { ANDROID_VERSIONS } from "../../../../utils/android_versions";
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import LottieView from 'lottie-react-native';
+import { LOTTIE_JSON } from '../../../../assets/lottie';
+import useRootChecker from '../../../hooks/useRootChecker';
+import DeviceInfo from 'react-native-device-info';
+import { ANDROID_VERSIONS } from '../../../../utils/android_versions';
 
-type AnimationType = "idle" | "loading" | "success" | "fail";
+type AnimationType = 'idle' | 'loading' | 'success' | 'fail';
 
 const RootCheck: React.FC = () => {
-  const [status, setStatus] = useState<AnimationType>("idle");
-  const { init, loading, isRooted } = useRootChecker()
+  const [status, setStatus] = useState<AnimationType>('idle');
+  const { init, loading, isRooted } = useRootChecker();
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
     if (loading) {
-      setStatus("loading")
+      setStatus('loading');
     } else {
       timeoutId = setTimeout(() => {
         if (isRooted !== null) {
-          setStatus(isRooted ? "success" : "fail");
+          setStatus(isRooted ? 'success' : 'fail');
         }
       }, 1000);
     }
@@ -29,20 +29,15 @@ const RootCheck: React.FC = () => {
         clearTimeout(timeoutId);
       }
     };
-
-  }, [loading, isRooted])
-
-
-
+  }, [loading, isRooted]);
 
   useEffect(() => {
-    init()
-
-  }, [])
+    init();
+  }, []);
 
   const renderAnimation = () => {
     switch (status) {
-      case "idle":
+      case 'idle':
         return (
           <TouchableOpacity
             disabled={loading}
@@ -53,7 +48,7 @@ const RootCheck: React.FC = () => {
             <Text style={styles.goText}>GO</Text>
           </TouchableOpacity>
         );
-      case "loading":
+      case 'loading':
         return (
           <LottieView
             source={LOTTIE_JSON.loadingJson}
@@ -62,7 +57,7 @@ const RootCheck: React.FC = () => {
             style={styles.lottieBox}
           />
         );
-      case "success":
+      case 'success':
         return (
           <LottieView
             source={LOTTIE_JSON.successJson}
@@ -71,7 +66,7 @@ const RootCheck: React.FC = () => {
             style={styles.lottieBox}
           />
         );
-      case "fail":
+      case 'fail':
         return (
           <LottieView
             source={LOTTIE_JSON.failJson}
@@ -85,7 +80,9 @@ const RootCheck: React.FC = () => {
 
   const modelName = DeviceInfo.getModel();
   const systemVersion = DeviceInfo.getSystemVersion();
-  const desertName = ANDROID_VERSIONS[systemVersion] ? `( ${ANDROID_VERSIONS[systemVersion]} )` : ''
+  const desertName = ANDROID_VERSIONS[systemVersion]
+    ? `( ${ANDROID_VERSIONS[systemVersion]} )`
+    : '';
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -97,7 +94,8 @@ const RootCheck: React.FC = () => {
 
         <View style={styles.info}>
           <Text>
-            {modelName} <Text>{status === "success" ? "is Rooted" : "is not Rooted"}</Text>
+            {modelName}{' '}
+            <Text>{status === 'success' ? 'is Rooted' : 'is not Rooted'}</Text>
           </Text>
           <Text>
             Running <Text>Android {systemVersion}</Text> {desertName}
@@ -115,9 +113,8 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     margin: 10,
     borderRadius: 8,
-    borderColor: "lightgrey",
+    borderColor: 'lightgrey',
     padding: 10,
-
   },
   title: {
     fontSize: 18,
@@ -128,31 +125,31 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderBottomWidth: 0.5,
     paddingBottom: 5,
-    borderBottomColor: "lightgrey",
+    borderBottomColor: 'lightgrey',
   },
   row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   animationContainer: {
     height: 100,
     width: 100,
     // backgroundColor: "black",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   blackBox: {
     height: 100,
     width: 100,
-    backgroundColor: "black",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   goText: {
-    color: "white",
+    color: 'white',
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   lottieBox: {
     height: 100,
