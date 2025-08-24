@@ -47,44 +47,44 @@ type ExpandedItemsState = {
 // ----- Data -----
 const faqs: FAQItem[] = [
   {
-    question: 'What is root?',
+    question: 'What is root on Android?',
     answer:
-      'Rooting is the process of gaining full administrative (superuser) access to your Android device, allowing you to modify system files and settings that are normally restricted.',
+      'Rooting is the process of gaining superuser (administrator) access to your Android device, which allows you to control and modify system files, apps, and settings that are normally restricted.',
   },
   {
-    question: 'Root and security',
+    question: 'Is rooting safe?',
     answer:
-      'While rooting gives you more control, it can also make your device more vulnerable to security threats if used carelessly, as malicious apps could gain system-level access.',
+      'Rooting itself is not inherently unsafe, but it can expose your device to risks. Malicious apps could misuse root access, and incorrect modifications may cause instability or data loss.',
   },
   {
-    question: 'What are the benefits of root?',
+    question: 'What are the benefits of rooting?',
     answer:
-      'Root access allows you to customize your device beyond manufacturer limits, remove pre-installed apps, improve performance, and use advanced apps that require superuser permissions.',
+      'Rooting enables advanced customization, removal of bloatware, better backups, performance tweaks, and the ability to install custom ROMs for new features or Android versions.',
   },
   {
-    question: 'What are the advantages of rooting?',
+    question: 'What are the risks of rooting?',
     answer:
-      'Advantages include deeper customization, better backup options, performance tweaks, and the ability to install custom ROMs for newer Android versions or extra features.',
+      'Rooting can void your warranty, prevent OTA updates, cause security vulnerabilities, or even brick your device if not done correctly.',
   },
   {
-    question: 'Can I un-root my device?',
+    question: 'Can I unroot my device?',
     answer:
-      'Yes. You can un-root by using apps like Magisk Manager or by flashing the stock firmware, which restores your device to factory settings.',
+      'Yes. You can unroot by using tools like Magisk Manager or by reinstalling the official stock firmware, which restores the device to factory condition.',
   },
   {
-    question: 'Will rooting void my warranty?',
+    question: 'Will rooting affect software updates?',
     answer:
-      'In many cases, yes. Manufacturers and carriers often void warranties if the device is found to be rooted. Check your warranty terms before proceeding.',
+      'Rooted devices may fail to install official over-the-air (OTA) updates. You may need to flash updates manually or use a custom ROM instead.',
   },
   {
-    question: 'Could rooting brick my device?',
+    question: 'Does rooting void my warranty?',
     answer:
-      "Yes, if done incorrectly, rooting can 'brick' your device, making it unusable. Always follow trusted guides and ensure your device is supported.",
+      'In most cases, yes. Manufacturers and carriers usually void the warranty if the device is rooted. Always review your warranty policy first.',
   },
   {
-    question: 'Will I get over-the-air updates?',
+    question: 'Can rooting brick my device?',
     answer:
-      'Rooted devices may not receive official OTA updates, or updates may fail to install. You might need to manually flash updates or custom ROMs.',
+      'Yes. An incorrect rooting process or flashing unsupported files can permanently damage (“brick”) your device. Always follow trusted guides for your exact model.',
   },
 ];
 
@@ -92,67 +92,67 @@ const terminology: TerminologyItem[] = [
   {
     term: 'ROM',
     definition:
-      'A ROM (Read-Only Memory) in Android terms is the operating system or firmware that runs your device. Custom ROMs are modified versions of Android created by developers.',
+      'A custom ROM is a modified version of Android created by developers to add features, improve performance, or update old devices.',
   },
   {
     term: 'Kernel',
     definition:
-      'The kernel is the core part of the operating system that manages communication between hardware and software.',
+      'The kernel is the core part of the operating system. It connects apps and the Android system to the device’s hardware, managing things like CPU, memory, and battery usage.',
   },
   {
     term: 'Radio',
     definition:
-      'The radio is the firmware that controls your device’s communication hardware like mobile networks, Wi-Fi, and Bluetooth.',
+      'The radio is the firmware that controls wireless communications on your device, such as mobile networks, Wi-Fi, GPS, and Bluetooth.',
   },
   {
     term: 'Flash',
     definition:
-      'Flashing means installing firmware, ROMs, or other system-level files onto your device’s internal memory.',
+      'Flashing means installing or overwriting system software (ROMs, kernels, recovery, etc.) onto your device’s internal memory.',
   },
   {
     term: 'Brick',
     definition:
-      "A bricked device is one that no longer functions due to corrupted or incorrect software installation. It can be 'soft-bricked' (recoverable) or 'hard-bricked' (permanently damaged).",
+      "A 'bricked' device is one that no longer functions because of corrupted or incorrect software installation. It can be 'soft-bricked' (usually fixable with flashing or recovery) or 'hard-bricked' (permanently unusable).",
   },
   {
     term: 'Bootloader',
     definition:
-      'A bootloader is the program that loads the operating system when the device starts. Unlocking it is often required for rooting and installing custom ROMs.',
+      'The bootloader is the program that starts up when you power on your device and loads the operating system. Unlocking it is often required for rooting or installing custom ROMs.',
   },
   {
     term: 'Recovery',
     definition:
-      'Recovery is a separate bootable partition that allows you to install updates, reset the device, or perform backups. Custom recoveries like TWRP offer more features.',
+      'Recovery is a special boot mode that lets you install updates, factory reset, or perform backups. Custom recoveries like TWRP provide advanced features such as flashing ZIP files and creating full backups.',
   },
   {
     term: 'Nandroid',
     definition:
-      'A Nandroid backup is a complete snapshot of your device’s system, data, and apps, allowing you to restore your device to the exact state it was in.',
+      'A Nandroid backup is a complete image of your device’s system, apps, and data. Restoring it brings your device back to the exact state it was in when the backup was made.',
   },
   {
     term: 'Fastboot',
     definition:
-      'Fastboot is a tool and protocol that allows you to write data directly to your device’s flash memory from a computer via USB.',
+      'Fastboot is a tool and protocol that allows flashing partitions of your device directly from a computer over USB. It is commonly used to unlock bootloaders, install recoveries, or fix bricked devices.',
   },
   {
     term: 'ADB',
     definition:
-      'ADB (Android Debug Bridge) is a command-line tool that lets you communicate with and control your Android device from a computer.',
+      'ADB (Android Debug Bridge) is a command-line tool that lets you communicate with your Android device from a computer. It is widely used for debugging, installing apps, transferring files, and issuing root commands.',
   },
   {
-    term: 'S-off',
+    term: 'S-OFF',
     definition:
-      'S-OFF (Security OFF) disables the security flag on some devices, allowing unrestricted access to the device’s NAND flash memory.',
+      'S-OFF (Security OFF) is a state on some HTC devices that disables security checks on the NAND flash memory, giving unrestricted system access.',
   },
   {
-    term: 'Ruu, SBF, and OPS',
+    term: 'RUU, SBF, OPS',
     definition:
-      'These are file formats for official firmware packages used by different manufacturers: RUU (HTC), SBF (Motorola), and OPS (Samsung Odin).',
+      'These are manufacturer-specific firmware file formats: RUU (HTC), SBF (Motorola), and OPS (used with Samsung Odin). They are used to restore or update official software.',
   },
   {
     term: 'BusyBox',
     definition:
-      'BusyBox is a software package that provides many common UNIX/Linux command-line tools in a single binary, often used on rooted Android devices to enhance functionality.',
+      'BusyBox is a software package that bundles many common UNIX/Linux commands into a single executable. On rooted devices, it enables advanced scripts and apps that require Linux utilities.',
   },
 ];
 

@@ -31,7 +31,7 @@ const useRootChecker = () => {
   }, []);
 
   const init = useCallback(async () => {
-    ToastAndroid.show('Checking... Root Access!', 1000);
+    ToastAndroid.show('Verifying root status...', 1000);
 
     try {
       const [rooted, zygisk] = await Promise.all([
